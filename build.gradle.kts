@@ -1,6 +1,7 @@
 import net.minecraftforge.gradle.user.patcherUser.forge.ForgeExtension
 import net.minecraftforge.gradle.user.patcherUser.forge.ForgePlugin
 import org.gradle.api.internal.HasConvention
+import org.gradle.api.internal.project.ProjectInternal
 
 buildscript {
 	repositories {
@@ -30,7 +31,7 @@ operator fun ForgeExtension.invoke(action : ForgeExtension.() -> Unit) = apply(a
 
 version = "1.0.0"
 group = "com.github.HoshinoTented"
-BasePluginConvention(project).archivesBaseName = "kotlin"
+BasePluginConvention(project).archivesBaseName = "kotlin"            //FIXME it is useless !!!
 
 tasks.withType<JavaCompile> {
 	sourceCompatibility = "1.8"
