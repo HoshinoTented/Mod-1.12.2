@@ -24,7 +24,7 @@ fun ItemStack.addShapelessRecipe(vararg item : ItemStack) {
 			ResourceLocation(""),
 			null,
 			this,
-			Ingredient.fromStacks(* item)
+			* item.map { Ingredient.fromStacks(it) }.toTypedArray()
 	)
 }
 

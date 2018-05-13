@@ -21,6 +21,7 @@ object ItemLoader {
 
 	@JvmStatic			//It should be `JvmStatic` !!!
 	@SubscribeEvent
+	@Suppress("unused")
 	fun registerItems(event : RegistryEvent.Register<Item>) {
 		event.registry.registerAll(* items)
 	}
@@ -28,6 +29,7 @@ object ItemLoader {
 	@JvmStatic
 	@SubscribeEvent
 	@SideOnly(Side.CLIENT)
+	@Suppress("unused", "UNUSED_PARAMETER")
 	fun registerRenders(event : ModelRegistryEvent) {        //https://github.com/ustc-zzzz/fmltutor/issues/74
 		items.forEach(::registerRender)
 	}
