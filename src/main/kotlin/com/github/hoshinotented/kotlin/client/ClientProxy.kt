@@ -11,8 +11,6 @@ class ClientProxy : CommonProxy() {
 	@Mod.EventHandler
 	override fun preInit(event : FMLPreInitializationEvent) {
 		super.preInit(event)
-
-		ItemLoader.registerRenders()
 	}
 
 	@Mod.EventHandler

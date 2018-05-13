@@ -3,6 +3,7 @@ package com.github.hoshinotented.kotlin.item
 import com.github.hoshinotented.kotlin.Kotlin
 import net.minecraft.client.renderer.block.model.ModelResourceLocation
 import net.minecraft.item.Item
+import net.minecraftforge.client.event.ModelRegistryEvent
 import net.minecraftforge.client.model.ModelLoader
 import net.minecraftforge.event.RegistryEvent
 import net.minecraftforge.fml.common.Mod
@@ -24,8 +25,10 @@ object ItemLoader {
 		event.registry.registerAll(* items)
 	}
 
+	@JvmStatic
+	@SubscribeEvent
 	@SideOnly(Side.CLIENT)
-	fun registerRenders() {
+	fun registerRenders(event : ModelRegistryEvent) {        //https://github.com/ustc-zzzz/fmltutor/issues/74
 		items.forEach(::registerRender)
 	}
 
