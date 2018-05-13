@@ -30,8 +30,7 @@ operator fun ForgeExtension.invoke(action : ForgeExtension.() -> Unit) = apply(a
 
 version = "1.0.0"
 group = "com.github.HoshinoTented"
-
-//TODO: Need `archivesBaseName`
+BasePluginConvention(project).archivesBaseName = "kotlin"
 
 tasks.withType<JavaCompile> {
 	sourceCompatibility = "1.8"
