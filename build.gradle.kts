@@ -47,6 +47,7 @@ minecraft {
 dependencies {
 	compile(kotlin("stdlib-jdk8", kotlinVersion))
 	compile(kotlin("test-junit", kotlinVersion))
+	testCompile(kotlin("reflect", kotlinVersion))
 }
 
 processResources {
