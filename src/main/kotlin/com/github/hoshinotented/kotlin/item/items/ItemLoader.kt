@@ -1,6 +1,7 @@
-package com.github.hoshinotented.kotlin.item
+package com.github.hoshinotented.kotlin.item.items
 
 import com.github.hoshinotented.kotlin.Kotlin
+import com.github.hoshinotented.kotlin.item.Recipable
 import net.minecraft.client.renderer.block.model.ModelResourceLocation
 import net.minecraft.item.Item
 import net.minecraftforge.client.event.ModelRegistryEvent
@@ -19,7 +20,7 @@ object ItemLoader {
 			ItemJava
 	)
 
-	@JvmStatic			//It should be `JvmStatic` !!!
+	@JvmStatic            //It should be `JvmStatic` !!!
 	@SubscribeEvent
 	@Suppress("unused")
 	fun registerItems(event : RegistryEvent.Register<Item>) {
@@ -29,13 +30,13 @@ object ItemLoader {
 	@JvmStatic
 	@SubscribeEvent
 	@SideOnly(Side.CLIENT)
-	@Suppress("unused", "UNUSED_PARAMETER")
+	@Suppress("unused")
 	fun registerRenders(event : ModelRegistryEvent) {        //https://github.com/ustc-zzzz/fmltutor/issues/74
-		items.forEach(::registerRender)
+		items.forEach(ItemLoader::registerRender)
 	}
 
 	fun registerRecipes() {
-		items.forEach(HoshinoItem::registerRecipes)
+		items.forEach(Recipable::registerRecipes)
 	}
 
 	@SideOnly(Side.CLIENT)

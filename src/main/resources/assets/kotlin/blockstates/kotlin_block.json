@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "normal": {
+      "model": "kotlin:kotlin_block"
+    }
+  }
+}

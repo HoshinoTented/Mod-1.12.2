@@ -2,6 +2,7 @@ import net.minecraftforge.gradle.user.patcherUser.forge.ForgeExtension
 import net.minecraftforge.gradle.user.patcherUser.forge.ForgePlugin
 import org.gradle.api.internal.HasConvention
 import org.gradle.api.internal.project.ProjectInternal
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 buildscript {
 	repositories {
@@ -20,6 +21,7 @@ plugins {
 	kotlin("jvm") version "1.2.41"
 }
 
+val jvmTarget = "1.8"
 val kotlinVersion = "1.2.41"
 val Project.forgePlugin : ForgePlugin get() = plugins.getPlugin(ForgePlugin::class.java)
 val Project.minecraft : ForgeExtension get() = forgePlugin.extension
@@ -34,8 +36,12 @@ group = "com.github.HoshinoTented"
 BasePluginConvention(project).archivesBaseName = "kotlin"            //FIXME it is useless !!!
 
 tasks.withType<JavaCompile> {
-	sourceCompatibility = "1.8"
+	sourceCompatibility = jvmTarget
 	targetCompatibility = sourceCompatibility
+}
+
+tasks.withType<KotlinCompile> {
+	kotlinOptions.jvmTarget = jvmTarget
 }
 
 minecraft {

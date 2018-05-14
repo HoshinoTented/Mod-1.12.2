@@ -1,4 +1,4 @@
-package com.github.hoshinotented.kotlin.item
+package com.github.hoshinotented.kotlin.item.items
 
 import com.github.hoshinotented.kotlin.utils.addShapelessRecipe
 import com.github.hoshinotented.kotlin.utils.addSmelting
