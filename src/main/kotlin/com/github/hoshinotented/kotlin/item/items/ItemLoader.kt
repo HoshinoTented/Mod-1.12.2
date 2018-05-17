@@ -24,7 +24,7 @@ object ItemLoader {
 	@SubscribeEvent
 	@Suppress("unused")
 	fun registerItems(event : RegistryEvent.Register<Item>) {
-		event.registry.registerAll(* items)
+		event.registry.registerAll(* ItemLoader.items)
 	}
 
 	@JvmStatic
@@ -32,11 +32,11 @@ object ItemLoader {
 	@SideOnly(Side.CLIENT)
 	@Suppress("unused")
 	fun registerRenders(event : ModelRegistryEvent) {        //https://github.com/ustc-zzzz/fmltutor/issues/74
-		items.forEach(ItemLoader::registerRender)
+		ItemLoader.items.forEach(ItemLoader::registerRender)
 	}
 
 	fun registerRecipes() {
-		items.forEach(Recipable::registerRecipes)
+		ItemLoader.items.forEach(Recipable::registerRecipes)
 	}
 
 	@SideOnly(Side.CLIENT)

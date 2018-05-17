@@ -16,8 +16,8 @@ open class CommonProxy : IProxy {
 
 	@Mod.EventHandler
 	override fun init(event : FMLInitializationEvent) {
-		ItemLoader.registerRecipes()
 		BlockLoader.registerRecipes()
+		ItemLoader.registerRecipes()
 	}
 
 	@Mod.EventHandler
