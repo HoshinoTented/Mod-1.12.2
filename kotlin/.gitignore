@@ -1,0 +1,8 @@
+# Gradle
+.gradle
+
+# Output(Cache)
+build
+
+# Run Directory
+run
