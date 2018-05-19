@@ -13,6 +13,7 @@ import net.minecraft.util.EnumFacing
 import net.minecraft.util.EnumHand
 import net.minecraft.util.math.BlockPos
 import net.minecraft.world.World
+import net.minecraftforge.common.MinecraftForge
 
 object BlockKotlinBlock : HoshinoBlock(
 		"kotlin_block",
@@ -41,7 +42,7 @@ object BlockKotlinBlock : HoshinoBlock(
 	) : Boolean {
 		return if (worldIn != null && pos != null && playerIn != null && playerIn.heldItemMainhand.item === ItemJava) {
 			BlockExplodedEvent(playerIn, pos, worldIn).run {
-				CommonEvents.EVENT_BUS.post(this)
+				MinecraftForge.EVENT_BUS.post(this)
 
 				if (isCanceled.not() && worldIn.isRemote.not()) {
 					worldIn.setBlockToAir(pos)
