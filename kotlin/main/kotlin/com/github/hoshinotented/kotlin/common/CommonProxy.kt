@@ -1,6 +1,7 @@
 package com.github.hoshinotented.kotlin.common
 
 import com.github.hoshinotented.kotlin.IProxy
+import com.github.hoshinotented.kotlin.event.CommonEvents
 import com.github.hoshinotented.kotlin.item.blocks.BlockLoader
 import com.github.hoshinotented.kotlin.item.items.ItemLoader
 import net.minecraftforge.fml.common.Mod
@@ -18,6 +19,8 @@ open class CommonProxy : IProxy {
 	override fun init(event : FMLInitializationEvent) {
 		BlockLoader.registerRecipes()
 		ItemLoader.registerRecipes()
+
+		CommonEvents.init()
 	}
 
 	@Mod.EventHandler
