@@ -1,2 +1,2 @@
-rootProject.name = "Kotlin Mod"
+rootProject.name = "KotlinMod"
 include("kotlin")

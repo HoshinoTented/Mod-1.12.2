@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import sys
-import configuration
+import common
 
 
 def genItemModel(mod_name, item_name):
@@ -20,7 +20,7 @@ def genItemModel(mod_name, item_name):
 
 
 if __name__ == '__main__':
-    mod_name = configuration.mod_name
+    mod_name = common.mod_name
 
     print("Current mod name: " + mod_name)
 
@@ -30,5 +30,8 @@ if __name__ == '__main__':
         item_name = sys.argv[1]
 
     genItemModel(mod_name, item_name)
+
+    if not common.checkTextures("items", item_name):
+        print("Texture not found!")
 
     print("Wrote!")

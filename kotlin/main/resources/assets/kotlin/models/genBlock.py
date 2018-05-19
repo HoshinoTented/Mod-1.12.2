@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import sys
-import configuration
+import common
 
 
 def genBlock(mod_name, block_name):
@@ -47,7 +47,7 @@ def genBlock(mod_name, block_name):
 
 
 if __name__ == '__main__':
-    mod_name = configuration.mod_name
+    mod_name = common.mod_name
 
     print("Current mod name: " + mod_name)
 

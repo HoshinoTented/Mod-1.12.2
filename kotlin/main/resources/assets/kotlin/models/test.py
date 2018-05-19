@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-import configuration
+import common
 
-print(configuration.mod_name)
+print(common.checkTextures("items", "cold_java"))
