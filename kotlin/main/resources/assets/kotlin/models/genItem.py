@@ -2,8 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import sys
-
-mod_name = "kotlin"
+import configuration
 
 
 def genItemModel(mod_name, item_name):
@@ -21,6 +20,8 @@ def genItemModel(mod_name, item_name):
 
 
 if __name__ == '__main__':
+    mod_name = configuration.mod_name
+
     print("Current mod name: " + mod_name)
 
     if len(sys.argv) <= 1:

@@ -2,9 +2,11 @@
 # -*- coding: utf-8 -*-
 
 import genItem
+import configuration
+
 
 if __name__ == "__main__":
-    mod_name = "kotlin"
+    mod_name = configuration.mod_name
     items = ["kotlin", "cold_java", "java"]
 
     for item in items:
