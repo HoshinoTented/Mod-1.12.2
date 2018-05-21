@@ -16,11 +16,22 @@ import net.minecraftforge.fml.relauncher.SideOnly
 @Suppress("unused")
 @Mod.EventBusSubscriber(modid = Kotlin.MOD_ID)
 object ItemLoader {
+	@Loadable val machineCenter = ItemMachineCenter()
+
 	@Loadable val kotlin = ItemKotlin()
+
 	@Loadable val coldJava = ItemColdJava()
 	@Loadable val java = ItemJava()
+
 	@Loadable val scalaPiece = ItemScalaPiece()
 	@Loadable val scala = ItemScala()
+
+
+	@Loadable val zero = ItemZero()
+	@Loadable val one = ItemOne()
+
+	@Loadable val baseCenter = ItemBaseCenter()
+
 	@Loadable val finalPickaxe = ItemFinalPickaxe()
 
 	private val items : Array<Item> by lazy {
@@ -47,7 +58,7 @@ object ItemLoader {
 
 	fun registerRecipes() {
 		ItemLoader.items.forEach {
-			(it as Recipable).registerRecipes()
+			(it as? Recipable)?.registerRecipes()
 		}
 	}
 

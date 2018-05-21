@@ -59,7 +59,7 @@ object BlockLoader {
 
 	fun registerRecipes() {
 		BlockLoader.blocks.forEach {
-			(it as Recipable).registerRecipes()
+			(it as? Recipable)?.registerRecipes()
 		}
 	}
 

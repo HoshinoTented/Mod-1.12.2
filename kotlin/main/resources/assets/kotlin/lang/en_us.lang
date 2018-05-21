@@ -2,9 +2,18 @@ item.kotlin.name=Kotlin
 
 item.coldJava.name=Cold Java
 item.java.name=Java
+
 item.scalaPiece.name=Scala Piece
 item.scala.name=Scala
+
 item.finalPickaxe.name=Final Pick Axe
 
+item.machineCenter.name=Machine Center
+item.baseCenter.name=Base Center
+
+item.zero.name=ZERO
+item.one.name=ONE
+
 tile.kotlinBlock.name=Kotlin Block
+
 itemGroup.kotlin=Kotlin

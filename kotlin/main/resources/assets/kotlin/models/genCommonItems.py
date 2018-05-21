@@ -7,7 +7,12 @@ import common
 
 if __name__ == "__main__":
     mod_name = common.mod_name
-    items = ["kotlin", "cold_java", "java", "scala_piece", "scala", "final_pickaxe"]
+    items = ["kotlin",
+             "cold_java", "java",
+             "scala_piece", "scala",
+             "final_pickaxe",
+             "machine_center", "zero", "one",
+             "base_center"]
 
     for item in items:
         genItem.genItemModel(mod_name, item)

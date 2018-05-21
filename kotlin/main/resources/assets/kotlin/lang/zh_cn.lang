@@ -2,9 +2,18 @@ item.kotlin.name=Kotlin
 
 item.coldJava.name=凉 Java
 item.java.name=热 Java
+
 item.scalaPiece.name=Scala 片
 item.scala.name=Scala
+
 item.finalPickaxe.name=无尽【最后的颂歌】
 
+item.machineCenter.name=机器核心
+item.baseCenter.name=汇编核心
+
+item.zero.name=假
+item.one.name=真
+
 tile.kotlinBlock.name=永恒的科特林
+
 itemGroup.kotlin=Kotlin
