@@ -18,7 +18,7 @@ object CommonEvents {
 	@SubscribeEvent
 	@Suppress("unused")
 	fun rightClickBlockEvent(event : BlockExplodedEvent) {
-		if (! event.world.isRemote && event.entityPlayer.heldItemMainhand.item === ItemJava) {
+		if (! event.world.isRemote && event.entityPlayer.heldItemMainhand.item is ItemJava) {
 			val pos = event.pos
 			val tnt = EntityTNTPrimed(event.world, pos.x + 0.5, pos.y + 0.5, pos.z + 0.5, null)
 

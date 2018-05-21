@@ -1,6 +1,7 @@
 package com.github.hoshinotented.kotlin.item.blocks
 
 import com.github.hoshinotented.kotlin.Kotlin
+import com.github.hoshinotented.kotlin.item.Loadable
 import com.github.hoshinotented.kotlin.item.Recipable
 import com.github.hoshinotented.kotlin.utils.item
 import com.github.hoshinotented.kotlin.utils.itemBlock
@@ -15,11 +16,20 @@ import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 import net.minecraftforge.fml.relauncher.Side
 import net.minecraftforge.fml.relauncher.SideOnly
+
+@Suppress("unused")
 @Mod.EventBusSubscriber(modid = Kotlin.MOD_ID)
 object BlockLoader {
-	private val blocks : Array<HoshinoBlock> = arrayOf(
-			BlockKotlinBlock
-	)
+	@Loadable val kotlinBlock = BlockKotlinBlock()
+
+	private val blocks : Array<Block> by lazy {
+		BlockLoader::class.java.declaredFields.mapNotNull {
+			if (it.isAnnotationPresent(Loadable::class.java)) {
+				it.isAccessible = true
+				it.get(null) as Block
+			} else null
+		}.toTypedArray()
+	}
 
 	@JvmStatic
 	@SubscribeEvent
@@ -48,7 +58,9 @@ object BlockLoader {
 	}
 
 	fun registerRecipes() {
-		BlockLoader.blocks.forEach(Recipable::registerRecipes)
+		BlockLoader.blocks.forEach {
+			(it as Recipable).registerRecipes()
+		}
 	}
 
 	@SideOnly(Side.CLIENT)

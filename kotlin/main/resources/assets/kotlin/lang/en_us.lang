@@ -2,5 +2,9 @@ item.kotlin.name=Kotlin
 
 item.coldJava.name=Cold Java
 item.java.name=Java
+item.scalaPiece.name=Scala Piece
+item.scala.name=Scala
+item.finalPickaxe.name=Final Pick Axe
+
 tile.kotlinBlock.name=Kotlin Block
 itemGroup.kotlin=Kotlin

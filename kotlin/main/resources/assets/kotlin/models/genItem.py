@@ -7,7 +7,7 @@ import common
 
 def genItemModel(mod_name, item_name):
     content = """{
-    "parent": "builtin/generated",
+    "parent": "item/generated",
     "textures": {
         "layer0": "%s:items/%s"
     }

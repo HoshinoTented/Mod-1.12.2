@@ -1,6 +1,7 @@
 package com.github.hoshinotented.kotlin.item.items
 
 import com.github.hoshinotented.kotlin.Kotlin
+import com.github.hoshinotented.kotlin.item.Loadable
 import com.github.hoshinotented.kotlin.item.Recipable
 import net.minecraft.client.renderer.block.model.ModelResourceLocation
 import net.minecraft.item.Item
@@ -12,17 +13,27 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 import net.minecraftforge.fml.relauncher.Side
 import net.minecraftforge.fml.relauncher.SideOnly
 
+@Suppress("unused")
 @Mod.EventBusSubscriber(modid = Kotlin.MOD_ID)
 object ItemLoader {
-	private val items : Array<HoshinoItem> = arrayOf(
-			ItemKotlin,
-			ItemColdJava,
-			ItemJava
-	)
+	@Loadable val kotlin = ItemKotlin()
+	@Loadable val coldJava = ItemColdJava()
+	@Loadable val java = ItemJava()
+	@Loadable val scalaPiece = ItemScalaPiece()
+	@Loadable val scala = ItemScala()
+	@Loadable val finalPickaxe = ItemFinalPickaxe()
+
+	private val items : Array<Item> by lazy {
+		ItemLoader::class.java.declaredFields.mapNotNull {
+			if (it.isAnnotationPresent(Loadable::class.java)) {
+				it.isAccessible = true
+				it.get(null) as Item
+			} else null
+		}.toTypedArray()
+	}
 
 	@JvmStatic            //It should be `JvmStatic` !!!
 	@SubscribeEvent
-	@Suppress("unused")
 	fun registerItems(event : RegistryEvent.Register<Item>) {
 		event.registry.registerAll(* ItemLoader.items)
 	}
@@ -30,13 +41,14 @@ object ItemLoader {
 	@JvmStatic
 	@SubscribeEvent
 	@SideOnly(Side.CLIENT)
-	@Suppress("unused")
 	fun registerRenders(event : ModelRegistryEvent) {        //https://github.com/ustc-zzzz/fmltutor/issues/74
 		ItemLoader.items.forEach(ItemLoader::registerRender)
 	}
 
 	fun registerRecipes() {
-		ItemLoader.items.forEach(Recipable::registerRecipes)
+		ItemLoader.items.forEach {
+			(it as Recipable).registerRecipes()
+		}
 	}
 
 	@SideOnly(Side.CLIENT)

@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "kotlin:items/java"
+    "layer0": "kotlin:items/final_pickaxe"
   }
 }
