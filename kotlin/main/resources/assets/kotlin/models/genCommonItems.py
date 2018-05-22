@@ -12,7 +12,8 @@ if __name__ == "__main__":
              "scala_piece", "scala",
              "final_pickaxe",
              "machine_center", "zero", "one",
-             "base_center"]
+             "base_center",
+             "c", "cpp"]
 
     for item in items:
         genItem.genItemModel(mod_name, item)

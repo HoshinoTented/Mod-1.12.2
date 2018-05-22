@@ -17,20 +17,16 @@ import net.minecraftforge.fml.relauncher.SideOnly
 @Mod.EventBusSubscriber(modid = Kotlin.MOD_ID)
 object ItemLoader {
 	@Loadable val machineCenter = ItemMachineCenter()
-
 	@Loadable val kotlin = ItemKotlin()
-
 	@Loadable val coldJava = ItemColdJava()
 	@Loadable val java = ItemJava()
-
 	@Loadable val scalaPiece = ItemScalaPiece()
 	@Loadable val scala = ItemScala()
-
-
 	@Loadable val zero = ItemZero()
 	@Loadable val one = ItemOne()
-
 	@Loadable val baseCenter = ItemBaseCenter()
+	@Loadable val c = ItemC()
+	@Loadable val cpp = ItemCpp()
 
 	@Loadable val finalPickaxe = ItemFinalPickaxe()
 
